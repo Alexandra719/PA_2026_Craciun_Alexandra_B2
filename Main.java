@@ -1,81 +1,36 @@
 public class Main {
-
-    static void fill(int[][] a, int value) {
-        int n = a.length;
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                a[i][j] = value;
-    }
-
-    static void drawRectangle(int[][] a, int height, int width) {
-        int n = a.length;
-        int startRow = (n - height) / 2;
-        int startCol = (n - width) / 2;
-
-        for (int i = startRow; i < startRow + height; i++)
-            for (int j = startCol; j < startCol + width; j++)
-                a[i][j] = 0;
-    }
-
-    static void drawCircle(int[][] a) {
-        int n = a.length;
-        int cx = n / 2;
-        int cy = n / 2;
-        int r = n / 3;
-
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                if ((i - cx) * (i - cx) + (j - cy) * (j - cy) <= r * r)
-                    a[i][j] = 255;
-    }
-
     public static void main(String[] args) {
+        System.out.println("Hello, World!");
 
-        if (args.length < 2) {
-            System.out.println("Usage:");
-            System.out.println("java Main n rectangle");
-            System.out.println("java Main n circle");
-            return;
-        }
+        String languages[] = {"C", "C++", "C#", "Phyton", "Go", "Rust", "JavaScript", "PHP", "Swift", "Java"};
 
-        int n = Integer.parseInt(args[0]);
-        String type = args[1];
+        int n = (int) (Math.random() * 1_000_000);
+        System.out.println(n);
 
-        long startTime = System.nanoTime();
+        int a = n * 3;
+        System.out.println(a);
 
-        int[][] a = new int[n][n];
+        a = a + 0b1001;
+        System.out.println(a);
 
-        if (type.equalsIgnoreCase("rectangle")) {
+        a = a + 0xFF;
+        System.out.println(a);
 
-            fill(a, 255); // fundal alb
+        a = a * 6;
+        System.out.println(a);
 
-            int height = n / 3;
-            int width = n / 2;
-
-            drawRectangle(a, height, width);
-
-        } else if (type.equalsIgnoreCase("circle")) {
-
-            fill(a, 0); // fundal negru
-            drawCircle(a);
-
-        } else {
-            System.out.println("rectangle or circle.");
-            return;
-        }
-
-        long endTime = System.nanoTime();
-        long duration = endTime - startTime;
-
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (a[i][j] == 0)
-                        System.out.print("\u2591");
-                    else
-                        System.out.print("\u2588");
-                }
-                System.out.println();
+        int result = a;
+        while(result > 9){
+            int sum = 0;
+            while(result > 0) {
+                sum = sum + result % 10;
+                result = result / 10;
             }
-        System.out.println("Execution time: " + duration + " ns");
+            result = sum;
+        }
+        System.out.println(result);
+
+        System.out.println("Willy-nilly, this semester I will learn " + languages[result]);
     }
+
 }
