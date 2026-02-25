@@ -47,7 +47,7 @@ public class Main {
 
         if (type.equalsIgnoreCase("rectangle")) {
 
-            fill(a, 255); // fundal alb
+            fill(a, 255); 
 
             int height = n / 3;
             int width = n / 2;
@@ -56,7 +56,7 @@ public class Main {
 
         } else if (type.equalsIgnoreCase("circle")) {
 
-            fill(a, 0); // fundal negru
+            fill(a, 0); 
             drawCircle(a);
 
         } else {
